@@ -1,3 +1,42 @@
+
+# 编译和使用支持 arm64, armv7 机构的静态库。
+
+cd dlib/examples
+修改 CMakeLists.txt 注释掉 52 和 55 行（静态库中，不需要这个例子文件cpp）
+mkdir build
+cd build
+cmake .. -G Xcode
+//build 目录下会生成 xcode 工程，设置 xcode 工程来编译目标库
+打开 examples.xcodeproj 
+选中 target dlib
+Build Settings -> Supported Platforms 设置为 iOS ，默认为 Mac
+Build Settings -> Base SDK 设置为 iOS 11
+Build Settings -> Build Active Architecture Only 设置为 NO，生成 fat 静态库
+
+选中 Project -> info iOS Deployment Target 设置为 10.
+选中 tool bar -> product ->  scheme -> edit  scheme -> Run -> info -> Build Config 设置为 release
+
+点击编译 
+
+```
+编译结果 7.3 MB
+Architectures in the fat file: ../build/dlib_build/Release-iphoneos/libdlib.a are: armv7 arm64 
+```
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+==================================================================
 # dlib C++ library [![Travis Status](https://travis-ci.org/davisking/dlib.svg?branch=master)](https://travis-ci.org/davisking/dlib)
 
 Dlib is a modern C++ toolkit containing machine learning algorithms and tools for creating complex software in C++ to solve real world problems. See [http://dlib.net](http://dlib.net) for the main project documentation and API reference.
