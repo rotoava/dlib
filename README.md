@@ -1,20 +1,22 @@
 
-# 编译和使用支持 arm64, armv7 机构的静态库。
+## 编译和使用支持 arm64, armv7 机构的 dlib 静态库。
 
-cd dlib/examples
-修改 CMakeLists.txt 注释掉 52 和 55 行（静态库中，不需要这个例子文件cpp）
-mkdir build
-cd build
-cmake .. -G Xcode
-//build 目录下会生成 xcode 工程，设置 xcode 工程来编译目标库
-打开 examples.xcodeproj 
-选中 target dlib
-Build Settings -> Supported Platforms 设置为 iOS ，默认为 Mac
-Build Settings -> Base SDK 设置为 iOS 11
-Build Settings -> Build Active Architecture Only 设置为 NO，生成 fat 静态库
+```
+cd dlib/examples    
+修改 CMakeLists.txt 注释掉 52 和 55 行（静态库中，不需要这个例子文件cpp）     
+mkdir build      
+cd build      
+cmake .. -G Xcode   
+```   
+//build 目录下会生成 xcode 工程，设置 xcode 工程来编译目标库      
+打开 examples.xcodeproj      
+选中 target dlib     
+Build Settings -> Supported Platforms 设置为 iOS ，默认为 Mac    
+Build Settings -> Base SDK 设置为 iOS 11     
+Build Settings -> Build Active Architecture Only 设置为 NO，生成 fat 静态库      
 
-选中 Project -> info iOS Deployment Target 设置为 10.
-选中 tool bar -> product ->  scheme -> edit  scheme -> Run -> info -> Build Config 设置为 release
+选中 Project -> info iOS Deployment Target 设置为 10.     
+选中 tool bar -> product ->  scheme -> edit  scheme -> Run -> info -> Build Config 设置为 release        
 
 点击编译 
 
