@@ -49,11 +49,10 @@ add_subdirectory(../dlib dlib_build)
 # are going to compile one of the dlib example programs which has only one .cpp
 # file, assignment_learning_ex.cpp.  If your program consisted of multiple .cpp
 # files you would simply list them here in the add_executable() statement.  
-# add_executable(assignment_learning_ex assignment_learning_ex.cpp)
+# add_executable(train_shape_predictor_ex train_shape_predictor_ex.cpp)
 # Finally, you need to tell CMake that this program, assignment_learning_ex,
 # depends on dlib.  You do that with this statement: 
-#target_link_libraries(assignment_learning_ex dlib::dlib)
-
+# target_link_libraries(train_shape_predictor_ex dlib::dlib)
 
 
 # To compile this program all you need to do is ask cmake.  You would type
